@@ -1,0 +1,45 @@
+/* ESTILO DO TÍTULO*/
+#Titulo {
+    font-family: 'fonte';
+    text-align: center;
+}
+
+#containerDoFundo {                     /* DESENHA O QUADRADO DE FUNDO */
+    justify-content: center;
+    width: 97%;
+    height: 700px;
+    border: 2px solid black;
+    margin: auto;
+}
+
+#containerTarefas {                     /* DESENHA O RETANGULO DE FUNDO */
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border-right: 2px solid black;
+    width: 10%;
+    height: 700px;
+}
+
+#adicionarTarefa {
+    font-family: 'fonte';
+}
+
+#editarTarefa {
+    font-family: 'fonte';
+    margin-top: 50px;
+}
+
+#removerTarefa {
+    font-family: 'fonte';
+}
+
+#btn-adicionar-tarefa {
+    margin-top: 10px;
+}
+
+/* MUDANDO A FONTE PARA A INSTALADA */
+@font-face {
+    font-family: 'fonte';
+    src: url('fonts/Letters for Learners.ttf') format(truetype);
+}
