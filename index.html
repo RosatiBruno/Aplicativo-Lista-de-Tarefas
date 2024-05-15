@@ -40,7 +40,13 @@
 
         </div>
 
-        <div id="containerTarefasLista"></div>                  <!-- AS TAREFAS SERÃO ADICIONADAS AQUI -->
+        <div id="containerTarefasLista">                        <!-- AS TAREFAS SERÃO ADICIONADAS AQUI -->
+
+            {% for tarefa in tarefas %}
+            <div class="nova-tarefa">{{ tarefa[1] }}</div>
+            {% endfor %}
+
+        </div>
 
     </div>
 
