@@ -5,16 +5,18 @@ document.addEventListener("DOMContentLoaded", function() {
         var nomeTarefa = document.getElementById("nome_tarefa").value;
         
         if (nomeTarefa.trim() !== "") {
+            
             var novaTarefa = document.createElement("div");
             novaTarefa.textContent = nomeTarefa;
-            document.getElementById("containerTarefas").appendChild(novaTarefa);
+            novaTarefa.classList.add("nova-tarefa");
+            document.getElementById("containerTarefasLista").appendChild(novaTarefa);
             document.getElementById("nome_tarefa").value = "";
-        } 
-        
-        else {
-            alert("Por favor, insira um nome para a tarefa.");
-        }
 
+        }
+        else {
+
+            alert("Por favor, insira uma tarefa.");
+
+        }
     });
-    
 });

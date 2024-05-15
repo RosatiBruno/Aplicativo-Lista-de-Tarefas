@@ -5,26 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="style.css">    <!-- CHAMA O CSS -->
-    <title>Lista de Tarefas</title>             <!-- TÍTULO DA PÁGINA -->
+    <title>Lista de Tarefas</title>                             <!-- TÍTULO DA PÁGINA -->
 
 </head>
 
 <body>
 
     <div id="Titulo">
-        <h1>Lista de Tarefas</h1>               <!-- TÍTULO NO TOPO DA TELA -->
+        <h1>Lista de Tarefas</h1>                               <!-- TÍTULO NO TOPO DA TELA -->
     </div>
 
-    <div id="containerDoFundo">               <!-- O QUADRADO ESTÁ AQUI DENTRO -->
+    <div id="containerDoFundo">                                 <!-- O QUADRADO ESTÁ AQUI DENTRO -->
 
-        <div id="containerTarefas">           <!-- O RETANGULO ESTÁ AQUI DENTRO -->
+        <div id="containerTarefas">                             <!-- O RETANGULO ESTÁ AQUI DENTRO -->
 
             <div id="adicionarTarefa">
                 <h2>Adicionar Tarefa</h2>
+
                 <form id="form-tarefa">
-                    <input type="text" id="nome_tarefa" name="nome_tarefa">
+                    <input type="text" id="nome_tarefa" name="nome_tarefa" placeholder="Nome da Tarefa">
                     <button id="btn-adicionar-tarefa" type="button">Cadastrar Tarefa</button>
                 </form>
+
             </div>
 
             <div id="editarTarefa">
@@ -34,10 +36,13 @@
             <div id="removerTarefa">
                 <h2>Remover Tarefa</h2>
             </div>
+
         </div>
+
+        <div id="containerTarefasLista"></div>                  <!-- AS TAREFAS SERÃO ADICIONADAS AQUI -->
 
     </div>
 
-<script src="script.js"></script> <!-- Importa o arquivo JavaScript -->
+    <script src="script.js"></script>                           <!-- Importa o arquivo JavaScript -->
 </body>
 </html>
