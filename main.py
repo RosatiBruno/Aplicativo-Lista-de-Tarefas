@@ -10,13 +10,13 @@ tarefas = []
 # Define a rota para a página inicial do site
 @app.route('/')
 def index():
-    print("PRIMEIRO")  # Mensagem de teste, remover depois
+    #print("PRIMEIRO")                                              # Mensagem de teste, remover depois
     return render_template('index.html')
 
 # Define a rota para os arquivos estáticos (CSS)
 @app.route('/<path:filename>')
 def static_files(filename):
-    print("SEGUNDO")                                                # Mensagem de teste, remover depois
+    #print("SEGUNDO")                                               # Mensagem de teste, remover depois
     return send_from_directory(os.getcwd(), filename)
 
 # Rota para adicionar uma nova tarefa
