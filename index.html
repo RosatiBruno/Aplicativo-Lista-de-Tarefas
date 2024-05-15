@@ -22,10 +22,10 @@
             <div id="adicionarTarefa">
                 <h2>Adicionar Tarefa</h2>
 
-                <form id="form-tarefa">
-                    <input type="text" id="nome_tarefa" name="nome_tarefa" placeholder="Nome da Tarefa">
-                    <button id="btn-adicionar-tarefa" type="button">Cadastrar Tarefa</button>
-                </form>
+                <form id="form-tarefa" action="/adicionar_tarefa" method="POST">
+                    <input type="text" id="nome_tarefa" name="nome_da_tarefa" placeholder="Nome da Tarefa">
+                    <button id="btn-adicionar-tarefa" type="submit">Cadastrar Tarefa</button>
+                </form>                
 
             </div>
 
