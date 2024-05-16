@@ -4,17 +4,20 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("btn-adicionar-tarefa").addEventListener("click", function(event) {
         event.preventDefault();
 
+        // Obtém o input do nome da tarefa
         var nomeTarefa = document.getElementById("nome_tarefa").value;
         
+        // Verifica se o campo não está vazio
         if (nomeTarefa.trim() !== "") {
 
+            // Envia uma requisição POST para adicionar a tarefa
             fetch('/adicionar_tarefa', {
 
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',         /* Define o padrão dos dados enviados */
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: 'nome_da_tarefa=' + encodeURIComponent(nomeTarefa)         /* Garante a codificação do nome da tarefa antes de enviar */
+                body: 'nome_da_tarefa=' + encodeURIComponent(nomeTarefa)
             }).then(response => {
 
                 if (response.ok) {
@@ -28,12 +31,19 @@ document.addEventListener("DOMContentLoaded", function() {
             }).catch(error => {
                 console.error("Erro ao adicionar tarefa:", error);
             });
-            
+
+            // Cria uma nova tarefa na lista
             var novaTarefa = document.createElement("div");
             novaTarefa.textContent = nomeTarefa;
             novaTarefa.classList.add("nova-tarefa");
             document.getElementById("containerTarefasLista").appendChild(novaTarefa);
             document.getElementById("nome_tarefa").value = "";
+
+            // Atualizar o data-id dos elementos no banco
+            var tarefas = document.querySelectorAll(".nova-tarefa");
+            tarefas.forEach((tarefa, index) => {
+                tarefa.dataset.id = index + 1;
+            });
 
         }
         else {
@@ -42,21 +52,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-    /* REMOVER TAREFA */                         /* EM PROCESSO */
+    /* REMOVER TAREFA */                         
     document.getElementById("btn-remover-tarefa").addEventListener("click", function(event) {
         event.preventDefault();
 
+        // Obtém o número da tarefa a ser removida
         var numeroTarefa = document.getElementById("numero_tarefa_remover").value;
 
+        // Verifica se o campo não está vazio
         if (numeroTarefa.trim() !== "") {
 
+            // Envia uma requisição POST para remover a tarefa
             fetch('/remover_tarefa', {
 
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',         /* Define o padrão dos dados enviados */
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: 'numero_da_tarefa_remover=' + encodeURIComponent(numeroTarefa) /* Garante a codificação do número (id) da tarefa antes de enviar */
+                body: 'numero_da_tarefa_remover=' + encodeURIComponent(numeroTarefa)
             }).then(response => {
 
                 if (response.ok) {
@@ -64,18 +77,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.log("Tarefa removida com sucesso!");
 
                     // Remover a tarefa do DOM
-                    var tarefas = document.querySelectorAll(".nova-tarefa");
-                    tarefas.forEach(tarefa => {
-                        if (tarefa.dataset.id === numeroTarefa) {
-                            tarefa.remove();
-                        }
-                    });
+                    var tarefaRemovida = document.querySelector('.nova-tarefa[data-id="' + numeroTarefa + '"]');
+                    if (tarefaRemovida) {
+                        tarefaRemovida.remove();
+                    }
 
-                    //Alterando os IDs
-                    var new_id = 1;
-                    tarefas.forEach(tarefa => {
-                        tarefa.dataset.id = new_id;
-                        new_id++;
+                    // Atualizar o data-id dos elementos no banco
+                    var tarefas = document.querySelectorAll(".nova-tarefa");
+                    tarefas.forEach((tarefa, index) => {
+                        tarefa.dataset.id = index + 1;
                     });
 
                 }
@@ -96,5 +106,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-
-}); /* DOM */
+    
+});

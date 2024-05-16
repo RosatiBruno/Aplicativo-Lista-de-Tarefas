@@ -5,12 +5,12 @@ A Lista de Tarefas é uma aplicação Web desenvolvida com Python e Flask, proje
 
 ## Funcionalidades Implementadas
 - ✔️ **Adicionar Tarefas:** Insira novas tarefas na lista com facilidade, digitando o nome da tarefa e clicando no botão "Cadastrar Tarefa".
+- ✔️ **Remover Tarefas:** Exclua tarefas que não são mais necessárias.
 - ✔️ **Integração com Banco de Dados:** Visualize as tarefas incluidas mesmo após recarregar a página.
 
 ## Funcionalidades a Serem Implementadas
 - ❌ **Status da Tarefa:** Adicione um status para a tarefa.
 - ❌ **Editar Tarefas:** Altere o nome e o status de uma tarefa existente diretamente na lista.
-- ❌ **Remover Tarefas:** Exclua tarefas que não são mais necessárias.
 - ❌ **Criação de Contas:** Crie sua conta para acessar seus afazeres de qualquer dispositivo.
 
 ## Instruções de Uso
