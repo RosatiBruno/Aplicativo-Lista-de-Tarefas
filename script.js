@@ -12,45 +12,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Envia uma requisição POST para adicionar a tarefa
             fetch('/adicionar_tarefa', {
-
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: 'nome_da_tarefa=' + encodeURIComponent(nomeTarefa)
-            }).then(response => {
-
-                if (response.ok) {
+            }).then(response => response.json())
+            .then(data => {
+                
+                if (data.message) {
                     console.log("Tarefa adicionada com sucesso!");
+
+                    // Atualizar a lista de tarefas no DOM
+                    atualizarListaTarefas(data.tarefas);
+                    document.getElementById("nome_tarefa").value = "";
                 }
                 
                 else {
-                    console.error("Erro ao adicionar tarefa:", response.statusText);
+                    console.error("Erro ao adicionar tarefa:", data.error);
                 }
-
+                
             }).catch(error => {
                 console.error("Erro ao adicionar tarefa:", error);
             });
 
-            // Cria uma nova tarefa na lista
-            var novaTarefa = document.createElement("div");
-            novaTarefa.textContent = nomeTarefa;
-            novaTarefa.classList.add("nova-tarefa");
-            document.getElementById("containerTarefasLista").appendChild(novaTarefa);
-            document.getElementById("nome_tarefa").value = "";
-
-            // Atualizar o data-id dos elementos no banco
-            var tarefas = document.querySelectorAll(".nova-tarefa");
-            tarefas.forEach((tarefa, index) => {
-                tarefa.dataset.id = index + 1;
-            });
-
         }
+        
         else {
             alert("Por favor, insira uma tarefa.");
         }
-    });
 
+    });
 
     /* REMOVER TAREFA */                         
     document.getElementById("btn-remover-tarefa").addEventListener("click", function(event) {
@@ -64,34 +56,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Envia uma requisição POST para remover a tarefa
             fetch('/remover_tarefa', {
-
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: 'numero_da_tarefa_remover=' + encodeURIComponent(numeroTarefa)
-            }).then(response => {
+            }).then(response => response.json())
+            .then(data => {
 
-                if (response.ok) {
-
+                if (data.message) {
                     console.log("Tarefa removida com sucesso!");
 
-                    // Remover a tarefa do DOM
-                    var tarefaRemovida = document.querySelector('.nova-tarefa[data-id="' + numeroTarefa + '"]');
-                    if (tarefaRemovida) {
-                        tarefaRemovida.remove();
-                    }
-
-                    // Atualizar o data-id dos elementos no banco
-                    var tarefas = document.querySelectorAll(".nova-tarefa");
-                    tarefas.forEach((tarefa, index) => {
-                        tarefa.dataset.id = index + 1;
-                    });
-
+                    // Atualizar a lista de tarefas no DOM
+                    atualizarListaTarefas(data.tarefas);
                 }
                 
                 else {
-                    console.error("Erro ao remover tarefa:", response.statusText);
+                    console.error("Erro ao remover tarefa:", data.error);
                 }
 
             }).catch(error => {
@@ -104,7 +85,23 @@ document.addEventListener("DOMContentLoaded", function() {
         else {
             alert("Por favor, insira o número da tarefa a ser removida.");
         }
+        
     });
 
-    
+    // Função para atualizar a lista de tarefas no DOM
+    function atualizarListaTarefas(tarefas) {
+        var containerTarefasLista = document.getElementById("containerTarefasLista");
+        containerTarefasLista.innerHTML = "";  // Limpa a lista atual
+
+        // Adiciona cada tarefa à lista
+        tarefas.forEach(function(tarefa) {
+            var novaTarefa = document.createElement("div");
+            novaTarefa.textContent = tarefa.id + " - " + tarefa.nome;
+            novaTarefa.classList.add("nova-tarefa");
+            novaTarefa.dataset.id = tarefa.id;
+            containerTarefasLista.appendChild(novaTarefa);
+        });
+    }
+
+
 });

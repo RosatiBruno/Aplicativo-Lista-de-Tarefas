@@ -6,14 +6,14 @@
     
     <link rel="stylesheet" type="text/css" href="style.css">    <!-- CHAMA O CSS -->
     <link rel="icon" href="images/image.png">                   <!-- IMAGEM DO TOPO DA PÁGINA -->
-    <title>Lista de Tarefas</title>                             <!-- TÍTULO DA PÁGINA -->
+    <title>TaskVault</title>                                    <!-- TÍTULO DA PÁGINA -->
 
 </head>
 
 <body>
 
     <div id="Titulo">
-        <h1>Lista de Tarefas</h1>                               <!-- TÍTULO NO TOPO DA TELA -->
+        <h1>TaskVault</h1>                               <!-- TÍTULO NO TOPO DA TELA -->
     </div>
 
     <div id="containerDoFundo">                                 <!-- O QUADRADO ESTÁ AQUI DENTRO -->
@@ -49,8 +49,8 @@
         <div id="containerTarefasLista">                        <!-- AS TAREFAS SERÃO ADICIONADAS AQUI -->
 
             {% for tarefa in tarefas %}
-            <div class="nova-tarefa" data-id="{{ tarefa[0] }}">{{ tarefa[1] }}</div>
-            {% endfor %}
+            <div class="nova-tarefa" data-id="{{ tarefa[0] }}">{{ tarefa[0] }} - {{ tarefa[1] }}</div>   <!-- [1] Exibe as tarefas na tela  -->
+            {% endfor %}                                                                            <!-- [0] Exibe o nmr da tarefa na tela -->
 
         </div>
 
