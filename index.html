@@ -35,7 +35,13 @@
             </div>
 
             <div id="removerTarefa">
-                <h2>Remover Tarefa</h2>
+                <h2>Remover Tarefa</h2>                                 <!-- EM PROCESSO -->
+
+                <form id="form-remover-tarefa" action"/remover_tarefa" method="POST">
+                    <input type="text" id="numero_tarefa_remover" name="numero_da_tarefa_remover" placeholder="Número da Tarefa">
+                    <button id="btn-remover-tarefa" type="submit">Remover Tarefa</button>
+                </form>
+
             </div>
 
         </div>
@@ -43,7 +49,7 @@
         <div id="containerTarefasLista">                        <!-- AS TAREFAS SERÃO ADICIONADAS AQUI -->
 
             {% for tarefa in tarefas %}
-            <div class="nova-tarefa">{{ tarefa[1] }}</div>
+            <div class="nova-tarefa" data-id="{{ tarefa[0] }}">{{ tarefa[1] }}</div>
             {% endfor %}
 
         </div>
