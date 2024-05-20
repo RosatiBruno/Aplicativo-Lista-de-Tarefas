@@ -1,7 +1,7 @@
-# Lista de Tarefas
+# TaskVault
 
 ## Descrição
-A Lista de Tarefas é uma aplicação Web desenvolvida com Python e Flask, projetada para simplificar o gerenciamento de suas tarefas diárias. Com está aplicação, você pode adicionar, editar e remover tarefas de uma lista de maneira rápida e eficiente. É uma solução prática para organizar suas atividades e aumentar sua produtividade.
+TaskVault é uma aplicação Web desenvolvida com Python e Flask, projetada para simplificar o gerenciamento de suas tarefas diárias. Com está aplicação, você pode adicionar, editar e remover tarefas de uma lista de maneira rápida e eficiente. É uma solução prática para organizar suas atividades e aumentar sua produtividade.
 
 ## Funcionalidades Implementadas
 - ✔️ **Adicionar Tarefas:** Insira novas tarefas na lista com facilidade, digitando o nome da tarefa e clicando no botão "Cadastrar Tarefa".
@@ -16,7 +16,7 @@ A Lista de Tarefas é uma aplicação Web desenvolvida com Python e Flask, proje
 ## Instruções de Uso
 1. **Clone o Repositório**
 ```
-git clone https://github.com/RosatiBruno/Aplicativo-Lista-de-Tarefas.git
+git clone https://github.com/RosatiBruno/TaskVault
 ```
 2. **Instale as Dependências** <br>
 Certifique-se de ter o Python 3 instalado em sua máquina. Utilize o pip para instalar o Flask, se ainda não o tiver.

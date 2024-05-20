@@ -104,4 +104,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
+
+    /* LIGHT MODE */                         
+    document.getElementById("btn-light-mode").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.body.classList.remove("dark-mode");
+        document.body.classList.add("light-mode")
+    });
+
+    /* DARK MODE */                         
+    document.getElementById("btn-dark-mode").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.body.classList.remove("light-mode");
+        document.body.classList.add("dark-mode")
+    });
+
+
 });
