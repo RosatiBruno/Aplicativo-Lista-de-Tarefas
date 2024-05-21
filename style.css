@@ -221,17 +221,23 @@ body{
 .light-mode #mode,
 .light-mode #btn-light-mode,
 .light-mode #btn-dark-mode,
-.light-mode #btn-adicionar-tarefa,
-.light-mode #btn-remover-tarefa,
 .light-mode #rodape,
 .light-mode .nova-tarefa {
     color: black;
     border-color: black ;
 }
 
+.light-mode #btn-adicionar-tarefa,
+.light-mode #btn-remover-tarefa {
+    color: black;
+    border-color: black ;
+    background-color: white;
+
+}
+
 .light-mode #form-tarefa input,
 .light-mode #form-remover-tarefa input {
-    background-color: white;   /* ERRO AQUIIIIIIIIIIIIIII*/
+    background-color: white;
     border-color: black ;
 }
 
